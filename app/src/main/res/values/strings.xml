@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">FinalProject</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="welcome">Welcome to the zoo!</string>
+    <string name="language">Language</string>
+    <string name="monkeys">Monkeys</string>
+    <string name="cats">Cats</string>
+    <string name="reptiles">Reptiles</string>
+    <string name="rodents">Rodents</string>
+    <string name="fishes">Fishes</string>
+    <string name="flying">Flying</string>
+    <string name="register">Sign Up</string>
+    <string name="new_password">Enter Password</string>
+    <string name="new_username">Enter Username</string>
+    <string name="animal_name">Animal Name</string>
+    <string name="type">Type</string>
+    <string name="back">Back</string>
+    <string name="submit">Submit</string>
+    <string name="todo">TODO</string>
+    <string name="Welcome">Welcome to the zoo!</string>
+
+</resources>

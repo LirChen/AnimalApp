@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RegisterPage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/_0552cd4026bd181b4c27979ce4685e8"
+    android:orientation="vertical"
+    android:paddingStart="60dp"
+    android:paddingTop="200dp"
+    android:paddingEnd="60dp"
+    tools:context=".Fragments.FragmentRegister">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/Register_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="?attr/colorTertiaryFixedDim"
+        android:ems="10"
+        android:fontFamily="@font/calligraffitti"
+        android:gravity="center"
+        android:lineSpacingExtra="14sp"
+        android:text="Register page"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/Email_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:hint="Email_address"
+        android:inputType="textEmailAddress"
+        android:onClick="getEmail"
+        android:paddingTop="18dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:onClick="getPassword"
+        android:paddingTop="19dp" />
+
+    <EditText
+        android:id="@+id/re_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:hint="re_password"
+        android:inputType="textPassword"
+        android:onClick="getPassword"
+        android:paddingTop="18dp" />
+
+    <EditText
+        android:id="@+id/phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:hint="phone_number"
+        android:inputType="phone"
+        android:onClick="getPhone"
+        android:paddingTop="15dp" />
+
+    <Button
+        android:id="@+id/Register_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="?attr/colorTertiary"
+        android:fontFamily="@font/calligraffitti"
+        android:text="Register"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:paddingTop="10dp" />
+
+    <Button
+        android:id="@+id/Back_to_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="?attr/colorTertiary"
+        android:fontFamily="@font/calligraffitti"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="Back to login"
+        android:paddingTop="10dp" />
+
+</LinearLayout>

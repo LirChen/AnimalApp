@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/fragmentAddAnimal">
+
+    <fragment
+        android:id="@+id/fragmentAddAnimal"
+        android:name="com.example.finalproject.Fragments.FragmentAddAnimal"
+        android:label="fragment_add_animal"
+        tools:layout="@layout/fragment_add_animal" >
+        <action
+            android:id="@+id/action_fragmentAddAnimal_to_mainActivityAnimalRV"
+            app:destination="@id/mainActivityAnimalRV" />
+        <action
+            android:id="@+id/action_fragmentAddAnimal_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentLogin"
+        android:name="com.example.finalproject.Fragments.FragmentLogin"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentRegister"
+            app:destination="@id/fragmentRegister" />
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentAddAnimal"
+            app:destination="@id/fragmentAddAnimal" />
+        <action
+            android:id="@+id/action_fragmentLogin_to_mainActivityAnimalRV"
+            app:destination="@id/mainActivityAnimalRV" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentRegister"
+        android:name="com.example.finalproject.Fragments.FragmentRegister"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_fragmentRegister_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.finalproject.activities.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/mainActivityAnimalRV"
+        android:name="com.example.finalproject.activities.MainActivityAnimalRV"
+        android:label="activity_main_animal_rv"
+        tools:layout="@layout/activity_main_animal_rv" />
+</navigation>

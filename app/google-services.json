@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "54872167018",
+    "project_id": "androidfinalanimalproject",
+    "storage_bucket": "androidfinalanimalproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54872167018:android:287e7b9a2e978dd6aab013",
+        "android_client_info": {
+          "package_name": "com.example.finalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsCug0pMam1YhVO-mECkxzShWuczhNx8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
