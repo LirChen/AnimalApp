@@ -16,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.finalproject.Fragments.FragmentZoo;
 import com.example.finalproject.R;
 import com.example.finalproject.models.Animal;
 import com.google.firebase.auth.FirebaseAuth;
@@ -98,4 +99,5 @@ public class MainActivityAnimalRV extends AppCompatActivity {
             animalContainer.addView(animalView);
         }
     }
+
 }

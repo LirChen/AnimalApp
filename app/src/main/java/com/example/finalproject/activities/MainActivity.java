@@ -16,6 +16,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.Navigation;
 
+import com.example.finalproject.Fragments.FragmentZoo;
 import com.example.finalproject.R;
 import com.example.finalproject.models.Animal;
 import com.example.finalproject.models.User;
@@ -154,4 +155,5 @@ public class MainActivity extends AppCompatActivity {
             finish();
         });
     }
+
 }
