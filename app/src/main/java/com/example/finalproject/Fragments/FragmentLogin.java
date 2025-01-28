@@ -41,7 +41,7 @@ public class FragmentLogin extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Navigation.findNavController(view).navigate(R.id.action_fragmentLogin_to_fragmentRegister);
+                Navigation.findNavController(v).navigate(R.id.action_fragmentLogin_to_fragmentRegister);
             }
         });
 

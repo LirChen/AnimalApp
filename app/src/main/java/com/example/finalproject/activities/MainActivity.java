@@ -2,6 +2,7 @@ package com.example.finalproject.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                             if (email.equals(predefinedEmail)) {
                                 Navigation.findNavController(findViewById(R.id.Login)).navigate(R.id.action_fragmentLogin_to_fragmentAddAnimal);
                             } else {
-                                Navigation.findNavController(findViewById(R.id.Login)).navigate(R.id.action_fragmentLogin_to_mainActivityAnimalRV);
+                                Navigation.findNavController(findViewById(R.id.Login)).navigate(R.id.action_fragmentAddAnimal_to_fragmentZoo);
                             }
                         } else {
                             Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_LONG).show();
@@ -91,7 +92,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+    void func (View view){
 
+        Intent intent = new Intent(this, MainActivityAnimalRV.class);
+        startActivity(intent);
+    }
 
     public void addData() {
 

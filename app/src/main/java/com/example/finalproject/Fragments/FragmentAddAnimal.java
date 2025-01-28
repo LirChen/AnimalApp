@@ -78,7 +78,7 @@ public class FragmentAddAnimal extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(rootView).navigate(R.id.action_fragmentAddAnimal_to_mainActivityAnimalRV);
+                Navigation.findNavController(v).navigate(R.id.action_fragmentAddAnimal_to_fragmentZoo);
             }
         });
             return rootView;
