@@ -12,8 +12,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.finalproject.Adapter.AnimalAdapter;
 import com.example.finalproject.R;
 import com.example.finalproject.activities.MainActivity;
+import com.example.finalproject.models.Animal;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,7 +29,7 @@ public class FragmentAddAnimal extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_add_animal, container, false);
-
+        View rootView2 = inflater.inflate(R.layout.fragment_zoo, container, false);
         Button button;
 
         TextView animalEditName, animalEditType, animalEditDescription, animalEditImageUrl;
@@ -62,7 +64,8 @@ public class FragmentAddAnimal extends Fragment {
                     if (isValidName(name) && isValidType(type)) {
                         MainActivity mainActivity = (MainActivity) getActivity();
                         mainActivity.addAnimalData();
-                        mainActivity.addAnimalRV();
+                        //mainActivity.addAnimalRV();
+
                         //mainActivity.getUser(phone);
                         Toast.makeText(getActivity(), "Animal added successfully!", Toast.LENGTH_SHORT).show();
                     } else {
@@ -84,7 +87,7 @@ public class FragmentAddAnimal extends Fragment {
             return rootView;
     }
     private boolean isValidName(String name) {
-        String nameRegex = "^[A-Za-z]+$";
+        String nameRegex = "^[A-Za-z\\s]+$";
         Pattern pattern = Pattern.compile(nameRegex);
         Matcher matcher = pattern.matcher(name);
         return matcher.matches();

@@ -16,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.finalproject.Fragments.FragmentAddAnimal;
 import com.example.finalproject.Fragments.FragmentZoo;
 import com.example.finalproject.R;
 import com.example.finalproject.models.Animal;
@@ -29,6 +30,7 @@ public class MainActivityAnimalRV extends AppCompatActivity {
     private final MainActivityAnimalRV mainActivityAnimalRV;
     private final ArrayList<Animal> animalList = new ArrayList<>();
     private LinearLayout animalContainer;
+    private FragmentZoo animalListFragment;
     private ActivityResultLauncher<Intent> addAnimalLauncher;
     private FirebaseAuth mAuth;
 
@@ -40,11 +42,23 @@ public class MainActivityAnimalRV extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_animal_rv);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.fragmentContainer), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        /*if (savedInstanceState == null) {
+            animalListFragment = new FragmentZoo();
+
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragmentContainer, animalListFragment, "list")
+                    .commit();
+        } else {
+            animalListFragment = (FragmentZoo)
+                    getSupportFragmentManager().findFragmentByTag("list");
+        }*/
+
         Intent intent = getIntent();
         //String email1 = ((TextView)findViewById(R.id.Email_login)).getText().toString();
 
@@ -55,7 +69,7 @@ public class MainActivityAnimalRV extends AppCompatActivity {
 
         animalContainer = findViewById(R.id.animal_type_container);
 
-        Button languageButton = findViewById(R.id.language);
+        //Button languageButton = findViewById(R.id.language);
 
 
         addAnimalLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -82,6 +96,14 @@ public class MainActivityAnimalRV extends AppCompatActivity {
             animalList.add(newAnimal);
             refreshAnimalList();
         }
+    }
+
+    public void showAddAnimalFragment() {
+        FragmentAddAnimal addFragment = new FragmentAddAnimal();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, addFragment)
+                .addToBackStack(null)
+                .commit();
     }
 
     private void refreshAnimalList() {

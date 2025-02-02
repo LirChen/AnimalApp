@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/fragmentContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
@@ -40,10 +40,11 @@
             android:id="@+id/animal_type_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:orientation="vertical"
             android:layout_weight="0.5"
-            tools:layout_editor_absoluteY="268dp" />
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            tools:layout_editor_absoluteY="268dp"
+            tools:listitem="@layout/cardview" />
     </LinearLayout>
 
     <Button

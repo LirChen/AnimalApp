@@ -14,13 +14,15 @@ import com.example.finalproject.R;
 import com.example.finalproject.models.Animal;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ProductViewHolder>{
-    private final ArrayList<Animal> animalList;
+    private ArrayList<Animal> animalList;
 
     public AnimalAdapter(ArrayList<Animal> animalList) {
         this.animalList = animalList;
     }
+
 
     @NonNull
     @Override

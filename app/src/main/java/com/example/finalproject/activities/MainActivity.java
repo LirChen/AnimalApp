@@ -15,7 +15,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.finalproject.Adapter.AnimalAdapter;
 import com.example.finalproject.Fragments.FragmentZoo;
 import com.example.finalproject.R;
 import com.example.finalproject.models.Animal;
@@ -26,6 +28,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,7 +49,12 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText animalNameEditText, animalTypeEditText, animalDescriptionEditText, animalImageEdit;
     private Button addAnimalButton;
+    private FragmentZoo animalListFragment;
     private ActivityResultLauncher<Intent> addAnimalLauncher;
+    private ArrayList<Animal> animalList;
+
+    private AnimalAdapter adapter;
+
 
     public void login() {
         String email = ((EditText) findViewById(R.id.emailLogin)).getText().toString();
@@ -122,7 +131,20 @@ public class MainActivity extends AppCompatActivity {
 
         Animal a = new Animal(name, type, description, imageUrl);
 
+        addAnimalToList(a);
+
         myRef.setValue(a);
+    }
+
+    public void addAnimalToList(Animal animal) {
+        // מציאת הפרגמנט וקריאה לפונקציה שלו
+        animalListFragment =
+                (FragmentZoo) getSupportFragmentManager()
+                        .findFragmentById(R.id.main);
+
+        if (animalListFragment != null) {
+            animalListFragment.addAnimal(animal);
+        }
     }
 
     public void addAnimalRV() {
@@ -144,16 +166,44 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            Intent addAnimalIntent = new Intent(MainActivity.this, MainActivityAnimalRV.class);
-            addAnimalLauncher.launch(addAnimalIntent); //
+            Animal newAnimal = new Animal(animalName, animalType, animalDescription);
+
+            /*// העברת החיה לפרגמנט של הרשימה
+            if (this instanceof MainActivity) {
+                MainActivity activity = (MainActivity) this;
+                activity.addAnimalToList(newAnimal);
+            }*/
+
+            // ניקוי השדות
+            clearFields();
+
+            //Intent addAnimalIntent = new Intent(MainActivity.this, MainActivityAnimalRV.class);
+            //addAnimalLauncher.launch(addAnimalIntent); //
 
             Intent resultIntent = new Intent();
             resultIntent.putExtra("animalName", animalName);
             resultIntent.putExtra("animalType", animalType);
             resultIntent.putExtra("animalDescription", animalDescription);
+
+            Intent addAnimalIntent = new Intent(MainActivity.this, MainActivityAnimalRV.class);
+            //addAnimalIntent.putExtras(resultIntent); // העתק את כל המידע
+            addAnimalLauncher.launch(addAnimalIntent);
+
             setResult(RESULT_OK, resultIntent);
             finish();
         });
+    }
+
+    /*public void addAnimalToList(Animal animal) {
+        if (animalListFragment != null) {
+            animalListFragment.addAnimal(animal);
+        }
+    }*/
+
+    private void clearFields() {
+        animalNameEditText.setText("");
+        animalTypeEditText.setText("");
+        animalDescriptionEditText.setText("");
     }
 
 }
