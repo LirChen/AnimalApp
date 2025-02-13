@@ -20,5 +20,6 @@
     <string name="submit">Submit</string>
     <string name="todo">TODO</string>
     <string name="Welcome">Welcome to the zoo!</string>
+    <string name="Add_animal_manager">Add animal (admin)</string>
 
 </resources>

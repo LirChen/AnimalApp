@@ -1,5 +1,6 @@
 package com.example.finalproject.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,7 +15,9 @@ import android.widget.Toast;
 
 import com.example.finalproject.Adapter.AnimalAdapter;
 import com.example.finalproject.R;
+import com.example.finalproject.activities.AddAnimalActivity;
 import com.example.finalproject.activities.MainActivity;
+import com.example.finalproject.activities.MainActivityAnimalRV;
 import com.example.finalproject.models.Animal;
 
 import java.util.regex.Matcher;
@@ -29,18 +32,18 @@ public class FragmentAddAnimal extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_add_animal, container, false);
-        View rootView2 = inflater.inflate(R.layout.fragment_zoo, container, false);
+        //View rootView2 = inflater.inflate(R.layout.fragment_zoo, container, false);
         Button button;
 
         TextView animalEditName, animalEditType, animalEditDescription, animalEditImageUrl;
 
         // Initialize the EditTexts (assuming you have these views in the layout)
-        animalEditName = rootView.findViewById(R.id.AnimalName);
-        animalEditType = rootView.findViewById(R.id.AnimalType);
-        animalEditDescription = rootView.findViewById(R.id.AnimalDescription);
-        animalEditImageUrl = rootView.findViewById(R.id.AnimalImageURL);
+        animalEditName = rootView.findViewById(R.id.AnimalName1);
+        animalEditType = rootView.findViewById(R.id.AnimalType1);
+        animalEditDescription = rootView.findViewById(R.id.AnimalDescription1);
+        animalEditImageUrl = rootView.findViewById(R.id.AnimalImageURL1);
 
-        button = rootView.findViewById(R.id.Add_animal_button);
+        button = rootView.findViewById(R.id.Add_animal_button1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +68,6 @@ public class FragmentAddAnimal extends Fragment {
                         MainActivity mainActivity = (MainActivity) getActivity();
                         mainActivity.addAnimalData();
                         //mainActivity.addAnimalRV();
-
                         //mainActivity.getUser(phone);
                         Toast.makeText(getActivity(), "Animal added successfully!", Toast.LENGTH_SHORT).show();
                     } else {
@@ -76,16 +78,16 @@ public class FragmentAddAnimal extends Fragment {
             }
         });
 
-        Button button1 = rootView.findViewById(R.id.back_to_main);
+        Button button1 = rootView.findViewById(R.id.back_to_main1);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.action_fragmentAddAnimal_to_fragmentZoo);
-            }
+                Navigation.findNavController(rootView).navigate(R.id.action_fragmentAddAnimal_to_mainActivityAnimalRV);            }
         });
             return rootView;
     }
+
     private boolean isValidName(String name) {
         String nameRegex = "^[A-Za-z\\s]+$";
         Pattern pattern = Pattern.compile(nameRegex);

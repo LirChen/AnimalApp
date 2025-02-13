@@ -4,7 +4,7 @@ public class Animal {
     private String name;
     private String type;
     private String description;
-    private String imageUrl;
+    private int image;
     private boolean isSelected;
 
 
@@ -18,11 +18,11 @@ public class Animal {
         this.isSelected = false;
     }
 
-    public Animal(String name, String type, String description, String imageUrl) {
+    public Animal(String name, String type, String description, int image) {
         this.name = name;
         this.type = type;
         this.description = description;
-        this.imageUrl = imageUrl;
+        this.image = image;
     }
     public String getType() { return type; }
     public void setType(String type) {this.type=type; }
@@ -41,11 +41,11 @@ public class Animal {
     public void setDescription(String description) {
         this.description = description;
     }
-    public String getImageUrl() {
-        return imageUrl;
+    public int getImage() {
+        return image;
     }
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImage(int image) {
+        this.image = image;
     }
 
 }

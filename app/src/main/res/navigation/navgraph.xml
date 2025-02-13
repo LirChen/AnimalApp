@@ -11,8 +11,8 @@
         android:label="fragment_add_animal"
         tools:layout="@layout/fragment_add_animal" >
         <action
-            android:id="@+id/action_fragmentAddAnimal_to_fragmentZoo"
-            app:destination="@id/fragmentZoo" />
+            android:id="@+id/action_fragmentAddAnimal_to_mainActivityAnimalRV"
+            app:destination="@id/mainActivityAnimalRV" />
     </fragment>
     <fragment
         android:id="@+id/fragmentLogin"
@@ -26,8 +26,8 @@
             android:id="@+id/action_fragmentLogin_to_fragmentAddAnimal"
             app:destination="@id/fragmentAddAnimal" />
         <action
-            android:id="@+id/action_fragmentLogin_to_fragmentZoo"
-            app:destination="@id/fragmentZoo" />
+            android:id="@+id/action_fragmentLogin_to_mainActivityAnimalRV"
+            app:destination="@id/mainActivityAnimalRV" />
     </fragment>
     <fragment
         android:id="@+id/fragmentRegister"
@@ -53,4 +53,8 @@
         android:name="com.example.finalproject.Fragments.FragmentZoo"
         android:label="fragment_zoo"
         tools:layout="@layout/fragment_zoo" />
+    <activity
+        android:id="@+id/addAnimalActivity"
+        android:name="com.example.finalproject.activities.AddAnimalActivity"
+        android:label="AddAnimalActivity" />
 </navigation>

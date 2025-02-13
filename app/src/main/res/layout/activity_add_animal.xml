@@ -26,7 +26,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/AnimalName1"
+        android:id="@+id/AnimalName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="15"
@@ -35,7 +35,7 @@
         android:paddingTop="18dp" />
 
     <EditText
-        android:id="@+id/AnimalType1"
+        android:id="@+id/AnimalType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="15"
@@ -44,7 +44,7 @@
         android:paddingTop="19dp" />
 
     <EditText
-        android:id="@+id/AnimalDescription1"
+        android:id="@+id/AnimalDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="15"
@@ -52,34 +52,14 @@
         android:onClick="getAnimalDescription"
         android:paddingTop="18dp" />
 
-    <EditText
-        android:id="@+id/AnimalImageURL1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="15"
-        android:hint="Animal_image_url"
-        android:onClick="getAnimalImageUrl"
-        android:paddingTop="15dp" />
-
     <Button
-        android:id="@+id/Add_animal_button1"
+        android:id="@+id/Add_animal_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="?attr/colorTertiary"
         android:fontFamily="@font/calligraffitti"
         android:paddingTop="10dp"
         android:text="Add animal"
-        android:textSize="22sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/back_to_main1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="?attr/colorTertiary"
-        android:fontFamily="@font/calligraffitti"
-        android:paddingTop="10dp"
-        android:text="Back to main"
         android:textSize="22sp"
         android:textStyle="bold" />
 
