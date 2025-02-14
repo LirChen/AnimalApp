@@ -3,28 +3,30 @@ package com.example.finalproject;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
-
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import com.example.finalproject.activities.MainActivity;
 
 import java.util.Locale;
 public class LocaleUtils {
-
-    // פונקציה לשינוי השפה
-    public static void setLocale(MainActivity activity, String languageCode) {
-        // יצירת Locale חדש
+    public static void setLocale(Context context, String languageCode) {
         Locale locale = new Locale(languageCode);
         Locale.setDefault(locale);
 
-        // גישה למשאבים והגדרות
-        Resources resources = activity.getResources();
+        Resources resources = context.getResources();
         Configuration config = resources.getConfiguration();
-        DisplayMetrics metrics = resources.getDisplayMetrics();
 
-        // עדכון השפה
-        config.setLocale(locale);
-        resources.updateConfiguration(config, metrics);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            config.setLocale(locale);
+        } else {
+            config.locale = locale;
+        }
 
-        // רענון ה-Activity
-        activity.recreate();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            context.createConfigurationContext(config);
+        }
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
     }
 }

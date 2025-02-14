@@ -1,6 +1,7 @@
 package com.example.finalproject.Adapter;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +18,16 @@ import com.example.finalproject.models.Animal;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.myViewHolder>{
     private ArrayList<Animal> animalList;
-
+    private Context context;
     private ArrayList<Animal> filteredList;
 
-    public AnimalAdapter(ArrayList<Animal> animalList) {
+    public AnimalAdapter(ArrayList<Animal> animalList, Context context) {
             this.animalList = animalList;
+            this.context = context;
             this.filteredList= new ArrayList<>(animalList);
     }
 
@@ -58,19 +61,20 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.myViewHold
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull AnimalAdapter.myViewHolder holder, int position) {
-        Animal animal = filteredList.get(position);
-        holder.animalName.setText(animal.getName());
-        holder.animalType.setText(animal.getType());
-        holder.animalDescription.setText(animal.getDescription());
-        holder.imageViewAnimal.setImageResource(animal.getImage());
-        holder.animalName.setText("Name: " +animal.getName());
-        holder.animalType.setText("Type: " + animal.getType());
-        holder.animalDescription.setText("Description:" + animal.getDescription());
+        if (animalList != null && position < filteredList.size()) {
+            Animal animal = filteredList.get(position);
+            if (animal != null) {
+                holder.animalName.setText(context.getString(R.string.animal_name_prefix) + " " + animal.getName());
+                holder.animalType.setText(context.getString(R.string.animal_type_prefix) + " " + animal.getType());
+                holder.animalDescription.setText(context.getString(R.string.animal_description_prefix) + " " + animal.getDescription());
+                holder.imageViewAnimal.setImageResource(animal.getImage());
+            }
+        }
     }
 
     @Override
     public int getItemCount() {
-        return animalList != null ? animalList.size() : 0;
+        return filteredList.size();
     }
 
     public void filter(String text) {
@@ -78,11 +82,15 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.myViewHold
         if (text.isEmpty()) {
             filteredList.addAll(animalList);
         } else {
-            text = text.toLowerCase();
+            // השתמש ב-Locale.ROOT כדי לטפל בהמרה לאותיות קטנות באופן עקבי
+            text = text.toLowerCase(Locale.ROOT);
             for (Animal animal : animalList) {
-                // סינון לפי שם או סוג
-                if (animal.getName().toLowerCase().contains(text) ||
-                        animal.getType().toLowerCase().contains(text)) {
+                // המרה של שם וסוג החיה לאותיות קטנות עם אותו Locale
+                String name = animal.getName().toLowerCase(Locale.ROOT);
+                String type = animal.getType().toLowerCase(Locale.ROOT);
+
+                // בדיקה אם המחרוזת מכילה את טקסט החיפוש
+                if (name.contains(text) || type.contains(text)) {
                     filteredList.add(animal);
                 }
             }

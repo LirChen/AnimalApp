@@ -21,5 +21,20 @@
     <string name="todo">TODO</string>
     <string name="Welcome">Welcome to the zoo!</string>
     <string name="Add_animal_manager">Add animal (admin)</string>
+    <string name="welcome_text">Welcome to the Zoo!</string>
+    <string name="animal_name_prefix">Name:</string>
+    <string name="animal_type_prefix">Type:</string>
+    <string name="animal_description_prefix">Description:</string>
+    <string name="search_hint">Search animals</string>
+    <string name="language_button">Change Language</string>
+    <string name="app_name_hebrew">גן החיות</string>
+    <string name="welcome_text_hebrew">ברוכים הבאים לגן החיות!</string>
+    <string name="animal_name_prefix_hebrew">שם:</string>
+    <string name="animal_type_prefix_hebrew">סוג:</string>
+    <string name="animal_description_prefix_hebrew">תיאור:</string>
+    <string name="search_hint_hebrew">חפש חיות</string>
+    <string name="language_button_hebrew">החלף שפה</string>
+
+
 
 </resources>

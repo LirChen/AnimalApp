@@ -8,17 +8,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.Adapter.AnimalAdapter;
-import com.example.finalproject.Fragments.FragmentZoo;
 import com.example.finalproject.R;
 import com.example.finalproject.models.Animal;
 import com.example.finalproject.models.User;
@@ -28,8 +25,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 

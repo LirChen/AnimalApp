@@ -34,6 +34,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="7"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:importantForAutofill="no"
+            android:textDirection="anyRtl"
+            android:layoutDirection="locale"
             android:queryHint="Search..." />
 
         <androidx.recyclerview.widget.RecyclerView
