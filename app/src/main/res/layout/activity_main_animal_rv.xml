@@ -83,7 +83,7 @@
         android:backgroundTint="@color/material_dynamic_neutral30"
         android:fontFamily="@font/calligraffitti"
         android:padding="12dp"
-        android:text="@string/language"
+        android:text="🌍"
         android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="20dp"

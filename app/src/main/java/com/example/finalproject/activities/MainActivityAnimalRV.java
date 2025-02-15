@@ -14,7 +14,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import android.widget.TextView;
 
-
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +40,7 @@ public class MainActivityAnimalRV extends AppCompatActivity {
     private AnimalAdapter adapter;
     private RecyclerView animalContainer;
     private SearchView searchView;
-
+    private TextView welcomeTextView;
     private LinearLayoutManager layoutManager;
 
     public MainActivityAnimalRV() {
@@ -55,16 +54,13 @@ public class MainActivityAnimalRV extends AppCompatActivity {
 
         myAnimals.initializeArrays(this);
 
-        //Intent intent = getIntent();
-
-        TextView welcomeTextView = findViewById(R.id.welcome_text);
-        searchView=findViewById(R.id.searchView);
+        welcomeTextView = findViewById(R.id.welcome_text);
+        searchView = findViewById(R.id.searchView);
         animalContainer = findViewById(R.id.animal_type_container);
         Button languageButton = findViewById(R.id.language);
 
         mAuth = FirebaseAuth.getInstance();
-        String email = mAuth.getCurrentUser().getEmail();
-        welcomeTextView.setText("Hello! welcome to the Zoo, " + email + "!");
+        updateWelcomeMessage();
 
         layoutManager = new LinearLayoutManager(this);
         animalContainer.setLayoutManager(layoutManager);
@@ -80,7 +76,7 @@ public class MainActivityAnimalRV extends AppCompatActivity {
                     types[i],
                     descriptions[i],
                     myAnimals.drawableArray[i]
-                    ));
+            ));
         }
         adapter = new AnimalAdapter(animalList,this);
         animalContainer.setAdapter(adapter);
@@ -102,7 +98,17 @@ public class MainActivityAnimalRV extends AppCompatActivity {
         });
 
         languageButton.setOnClickListener(v -> showLanguageDialog());
+    }
 
+    private void updateWelcomeMessage() {
+        String email = mAuth.getCurrentUser().getEmail();
+        String currentLanguage = getResources().getConfiguration().locale.getLanguage();
+
+        if (currentLanguage.equals("iw")) {
+            welcomeTextView.setText("שלום! ברוכים הבאים לגן החיות, " + email + "!");
+        } else {
+            welcomeTextView.setText("Hello! Welcome to the Zoo, " + email + "!");
+        }
     }
 
     private void setLocale(String languageCode) {
@@ -112,7 +118,8 @@ public class MainActivityAnimalRV extends AppCompatActivity {
         Configuration config = resources.getConfiguration();
         config.setLocale(locale);
         resources.updateConfiguration(config, resources.getDisplayMetrics());
-        recreate(); // פעולה זו תיצור מחדש את האקטיביטי
+        updateWelcomeMessage(); // עדכון הודעת הברוכים הבאים לפני יצירה מחדש של האקטיביטי
+        recreate();
     }
 
     private void showLanguageDialog() {
@@ -132,6 +139,5 @@ public class MainActivityAnimalRV extends AppCompatActivity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-        }
-
+    }
 }
