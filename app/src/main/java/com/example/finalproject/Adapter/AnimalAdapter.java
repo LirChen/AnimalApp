@@ -64,12 +64,26 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.myViewHold
         if (animalList != null && position < filteredList.size()) {
             Animal animal = filteredList.get(position);
             if (animal != null) {
-                holder.animalName.setText(context.getString(R.string.animal_name_prefix) + " " + animal.getName());
-                holder.animalType.setText(context.getString(R.string.animal_type_prefix) + " " + animal.getType());
-                holder.animalDescription.setText(context.getString(R.string.animal_description_prefix) + " " + animal.getDescription());
+                holder.animalName.setText(animal.getName());
+                holder.animalType.setText(animal.getType());
+                holder.animalDescription.setText(animal.getDescription());
                 holder.imageViewAnimal.setImageResource(animal.getImage());
             }
         }
+        holder.cardView.setOnClickListener(view -> {
+            view.animate()
+                    .scaleX(0.95f)
+                    .scaleY(0.95f)
+                    .setDuration(100)
+                    .withEndAction(() -> {
+                        view.animate()
+                                .scaleX(1f)
+                                .scaleY(1f)
+                                .setDuration(100)
+                                .start();
+                    })
+                    .start();
+        });
     }
 
     @Override
