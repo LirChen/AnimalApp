@@ -118,7 +118,7 @@ public class MainActivityAnimalRV extends AppCompatActivity {
         Configuration config = resources.getConfiguration();
         config.setLocale(locale);
         resources.updateConfiguration(config, resources.getDisplayMetrics());
-        updateWelcomeMessage(); // עדכון הודעת הברוכים הבאים לפני יצירה מחדש של האקטיביטי
+        updateWelcomeMessage();
         recreate();
     }
 
